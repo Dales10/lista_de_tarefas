@@ -31,10 +31,10 @@ const PopupEditTask = ({ readTasks, popupEditChangeState, taskInfo, setTaskInfo 
 
     return (
         <div
-            className="popup-inner w-screen h-screen bg-[rgb(67,67,67,.8)] absolute top-0 left-0 flex justify-center items-center"
+            className="popup-inner w-screen h-screen bg-grey21_op80 absolute top-0 left-0 flex justify-center items-center"
             onClick={e => changeValidation(e)}
         >
-            <div className="w-[600px] bg-[#1A1A1A] rounded-xl relative">
+            <div className="w-[600px] bg-grey01 rounded-xl relative">
                 <button
                     className='absolute top-3 right-3 text-3xl text-gray-300'
                     onClick={() => popupEditChangeState(true)}
@@ -45,18 +45,18 @@ const PopupEditTask = ({ readTasks, popupEditChangeState, taskInfo, setTaskInfo 
                     className='flex flex-col p-4 gap-8'
                     onSubmit={(e) => updateTask(e)}
                 >
-                    <h1 className='text-4xl font-bold text-center mt-2'>Edite abaixo a tarefa</h1>
+                    <h1 className='text-4xl font-bold text-center mt-2 select-none'>Edite abaixo a tarefa</h1>
                     <input
                         type="text"
                         placeholder='Edite a tarefa'
-                        className='bg-[#353535] mt-5 h-14 rounded-lg placeholder:pl-4'
+                        className='bg-grey21 mt-5 h-14 rounded-lg pl-4'
                         value={taskInfo.task}
                         onChange={(e) => setTaskInfo(prevState => {
                             return { ...prevState, task: e.target.value }
                         })}
                     />
                     <button
-                        className='bg-[#353535] h-10 rounded-lg font-black mb-6'
+                        className='bg-grey21 h-10 rounded-lg font-black mb-6 hover:bg-grey31 transition duration-500'
                         type='submit'
                     >
                         Atualizar

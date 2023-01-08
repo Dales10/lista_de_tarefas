@@ -61,11 +61,11 @@ const Home = () => {
       <header className="h-24 w-screen text-[#CACACA] bg-[#0D0E11] flex justify-left items-center">
         <h1 className="text-3xl sm:text-4xl font-black ml-6 sm:m-10 select-none">Lista de Tarefas</h1>
       </header>
-      <main className="flex justify-center my-14">
-        <div className=" w-[800px] bg-[#1A1A1A] rounded-[40px]" >
+      <main className="flex justify-center my-14 mx-2">
+        <div className=" w-[800px] bg-grey01 rounded-[40px]" >
           <div className='w-full flex mt-5 justify-center'>
             <button
-              className='bg-[#353535] w-[calc(100%_-_4rem)] h-10 rounded-lg font-bold flex justify-center items-center select-none'
+              className='bg-grey21 w-[calc(100%_-_4rem)] h-10 rounded-lg font-bold flex justify-center items-center select-none hover:bg-grey31 transition duration-500'
               onClick={() => popupAddChangeState(true)}
             >
               Adicionar tarefa

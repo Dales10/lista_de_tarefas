@@ -39,10 +39,10 @@ const PopupAdd = ({ readTasks, popupAddChangeState }: AddProps) => {
 
     return (
         <div
-            className="popup-inner w-screen h-screen bg-[rgb(67,67,67,.8)] fixed top-0 left-0 overflow-y-hidden flex justify-center items-center"
+            className="popup-inner w-screen h-screen bg-grey21_op80 fixed top-0 left-0 overflow-y-hidden flex justify-center items-center"
             onClick={e => changeValidation(e)}
         >
-            <div className="w-[600px] bg-[#1A1A1A] rounded-xl relative">
+            <div className="w-[600px] bg-grey01 rounded-xl relative">
                 <button
                     className='absolute top-3 right-3 text-3xl text-gray-300'
                     onClick={() => popupAddChangeState(true)}
@@ -53,19 +53,19 @@ const PopupAdd = ({ readTasks, popupAddChangeState }: AddProps) => {
                     className='flex flex-col p-4'
                     onSubmit={(e) => addTask(e)}
                 >
-                    <h1 className='text-4xl font-bold text-center mt-2'>Cologue abaixo a tarefa</h1>
+                    <h1 className='text-4xl font-bold text-center mt-2 select-none'>Cologue abaixo a tarefa</h1>
                     <input
                         type="text"
                         placeholder='Adicione uma tarefa'
-                        className='bg-[#353535] mt-10 h-14 rounded-lg placeholder:pl-4'
+                        className='bg-grey21 mt-10 h-14 rounded-lg pl-4'
                         value={task}
                         onChange={(e) => setTask(e.target.value)}
                     />
-                    <span style={alertMessage} className='mt-2 ml-1 text-xs text-[#FF0000]'>
+                    <span style={alertMessage} className='mt-2 ml-1 text-xs text-[#FF0000] select-none'>
                         Tamanho de texto inválido. O texto precisa estar entre 5 e 1024 caracteres.
                     </span>
                     <button
-                        className='bg-[#353535] h-10 rounded-lg font-black my-8'
+                        className='bg-grey21 h-10 rounded-lg font-black my-8 hover:bg-grey31 transition duration-500'
                         type='submit'
                     >
                         Adicionar
