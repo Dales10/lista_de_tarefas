@@ -29,7 +29,7 @@ const PopupRemoveTask = ({ readTasks, popupRemoveChangeState, taskInfo }: EditPr
 
     return (
         <div
-            className="popup-inner w-screen h-screen bg-grey21_op80 absolute top-0 left-0 flex justify-center items-center"
+            className="popup-inner w-screen h-screen bg-grey21_op80 absolute top-0 flex justify-center items-center mx-2"
             onClick={e => changeValidation(e)}
         >
             <div className="w-[600px] bg-grey01 rounded-xl relative">

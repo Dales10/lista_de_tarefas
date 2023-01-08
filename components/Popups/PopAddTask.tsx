@@ -27,7 +27,6 @@ const PopupAdd = ({ readTasks, popupAddChangeState }: AddProps) => {
         } else {
             setAlertMessage({ display: 'block' })
         }
-
     }
 
     const changeValidation = (e: FormEvent) => {
@@ -39,7 +38,7 @@ const PopupAdd = ({ readTasks, popupAddChangeState }: AddProps) => {
 
     return (
         <div
-            className="popup-inner w-screen h-screen bg-grey21_op80 fixed top-0 left-0 overflow-y-hidden flex justify-center items-center"
+            className="popup-inner w-screen h-screen bg-grey21_op80 fixed top-0 overflow-y-hidden flex justify-center items-center mx-2"
             onClick={e => changeValidation(e)}
         >
             <div className="w-[600px] bg-grey01 rounded-xl relative">
@@ -54,15 +53,15 @@ const PopupAdd = ({ readTasks, popupAddChangeState }: AddProps) => {
                     onSubmit={(e) => addTask(e)}
                 >
                     <h1 className='text-4xl font-bold text-center mt-2 select-none'>Cologue abaixo a tarefa</h1>
-                    <input
-                        type="text"
+                    <textarea
                         placeholder='Adicione uma tarefa'
-                        className='bg-grey21 mt-10 h-14 rounded-lg pl-4'
+                        className='bg-grey21 mt-10 h-14 rounded-lg pl-4 pt-4'
                         value={task}
+                        cols={10}
                         onChange={(e) => setTask(e.target.value)}
-                    />
+                    ></textarea>
                     <span style={alertMessage} className='mt-2 ml-1 text-xs text-[#FF0000] select-none'>
-                        Tamanho de texto inválido. O texto precisa estar entre 5 e 1024 caracteres.
+                        Tamanho de texto inválido. O texto precisa ter entre 5 e 1024 caracteres.
                     </span>
                     <button
                         className='bg-grey21 h-10 rounded-lg font-black my-8 hover:bg-grey31 transition duration-500'
