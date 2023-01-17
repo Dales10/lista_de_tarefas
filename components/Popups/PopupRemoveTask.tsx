@@ -10,21 +10,21 @@ type EditProps = {
 }
 
 const PopupRemoveTask = ({ readTasks, popupRemoveChangeState, taskInfo }: EditProps) => {
+    //Deleta a tarefa selecionada.
     const deleleTask = async () => {
         try {
             await deleteDoc(doc(db, "tasks", taskInfo.id));
             readTasks();
         } catch (err) {
-            console.log("Error when deleting", err);
+            console.log("Error when deleting. Error: ", err);
         }
     }
 
-
+    //Caso alguma região fora da pop-up tenha sido clicada, altera o estado de exibição da mesma.
     const changeValidation = (e: MouseEvent) => {
         const origin = (e.target as Element).classList[0];
-        if (origin == 'popup-inner') {
+        if (origin == 'popup-inner')
             popupRemoveChangeState(true);
-        }
     }
 
     return (

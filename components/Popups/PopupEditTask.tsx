@@ -13,6 +13,7 @@ type EditProps = {
 const PopupEditTask = ({ readTasks, popupEditChangeState, taskInfo, setTaskInfo }: EditProps) => {
     const [alertMessage, setAlertMessage] = useState({ display: 'none' });
 
+    //Atualiza a tarefa selecionada.
     const updateTask = async (e: FormEvent) => {
         e.preventDefault();
         const lengthTextValid = (taskInfo.task).length >= 5 && (taskInfo.task).length <= 1024;
@@ -23,18 +24,18 @@ const PopupEditTask = ({ readTasks, popupEditChangeState, taskInfo, setTaskInfo 
                 await updateDoc(doc(db, "tasks", taskInfo.id), { task: taskInfo.task });
                 readTasks();
             } catch (err) {
-                console.log("Error when updating", err);
+                console.log("Error when updating. Error: ", err);
             }
         } else {
             setAlertMessage({ display: 'block' })
         }
     }
 
+    //Caso alguma região fora da pop-up tenha sido clicada, altera o estado de exibição da mesma.
     const changeValidation = (e: FormEvent) => {
         const origin = (e.target as Element).classList[0];
-        if (origin == 'popup-inner') {
+        if (origin == 'popup-inner')
             popupEditChangeState(true);
-        }
     }
 
     return (

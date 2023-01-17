@@ -8,7 +8,7 @@ import PopupRemoveTask from '../components/Popups/PopupRemoveTask';
 import ReadTasks from '../components/ReadTasks';
 
 const Home = () => {
-  const [taskInfo, setTaskInfo] = useState<TaskDataProps>({task: '', id: ''});
+  const [taskInfo, setTaskInfo] = useState<TaskDataProps>({ task: '', id: '' });
   const [tasks, setTasks] = useState<TaskDataProps[]>([]);
   //useStates responsáveis pela mostragem ou não dos popups de adição de tarefa, atualização e remoção.
   const [popupAdd, setPopupAdd] = useState(false);
@@ -18,14 +18,14 @@ const Home = () => {
   //Responsável pela leitura das tarefas no Firebase.
   const readTasks = async () => {
     try {
-      const test: any = []
+      const tarefas: any = []
       await getDocs(collection(db, "tasks"))
         .then((data) => {
           data.docs.forEach((item) => {
-            test.push({ ...item.data(), id: item.id })
+            tarefas.push({ ...item.data(), id: item.id })
           });
         })
-      setTasks(test);
+      setTasks(tarefas);
     } catch (err) {
       console.log(err);
     }
@@ -49,11 +49,10 @@ const Home = () => {
 
   //Caso uma das popups esteja aberta, o scroll vertical é oculto. Se caso for fechada o scroll vertical volta a ficar visível.
   useEffect(() => {
-    if (popupAdd || popupEdit || popupRemove) {
+    if (popupAdd || popupEdit || popupRemove)
       document.body.style.overflowY = 'hidden';
-    } else {
+    else
       document.body.style.overflowY = 'visible';
-    }
   }, [popupAdd, popupEdit, popupRemove])
 
   return (

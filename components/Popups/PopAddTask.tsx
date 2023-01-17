@@ -11,7 +11,7 @@ const PopupAdd = ({ readTasks, popupAddChangeState }: AddProps) => {
     const [task, setTask] = useState<string>('');
     const [alertMessage, setAlertMessage] = useState({ display: 'none' });
 
-    //Const responsável pela adição das tarefas no Firebase.
+    //Adiciona a tarefa enviada pelo usuário.
     const addTask = async (e: FormEvent) => {
         e.preventDefault();
         const lengthTextValid = task.length >= 5 && task.length <= 1024;
@@ -22,18 +22,18 @@ const PopupAdd = ({ readTasks, popupAddChangeState }: AddProps) => {
                     .then(() => setTask(''));
                 readTasks();
             } catch (err) {
-                console.log(err);
+                console.log("Error when adding. Error: ", err);
             }
         } else {
             setAlertMessage({ display: 'block' })
         }
     }
 
+    //Caso alguma região fora da pop-up tenha sido clicada, altera o estado de exibição da mesma.
     const changeValidation = (e: FormEvent) => {
         const origin = (e.target as Element).classList[0];
-        if (origin == 'popup-inner') {
+        if (origin == 'popup-inner')
             popupAddChangeState(true);
-        }
     }
 
     return (
